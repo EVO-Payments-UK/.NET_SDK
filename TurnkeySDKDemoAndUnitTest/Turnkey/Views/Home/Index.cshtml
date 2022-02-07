@@ -1,0 +1,365 @@
+﻿<h1>TurnkeyWeb</h1>
+<div>
+    <div class="menuLeft" onload="clear();">
+        <h3>Server-to-Server mode samples:</h3>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="responseDataModal" role="dialog">
+            <div class="modal-dialog modal-lg">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Response data</h4>
+                    </div>
+                    <div class="modal-body" id="placeOfResult">
+
+                    </div>
+                    <div class="modal-footer" id="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="loading" role="dialog">
+            <div class="modal-dialog modal-lg">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+
+                        <h4 class="modal-title">Request status</h4>
+                    </div>
+                    <div class="modal-body" id="placeOfResult">
+                        <h3>Loading...</h3>
+                    </div>
+                    <div class="modal-footer" id="modal-footer">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade payModal" id="pay" role="dialog">
+            <div class="modal-dialog modal-lg">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">JsApi</h4>
+                    </div>
+                    <div class="modal-body" id="placeOfResult">
+                        <div id="ipgCashierDiv"></div>
+                    </div>
+                    <div class="modal-footer" id="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <ul>
+            <li style="margin-top: 20px"><span class="btn-link" onclick="showContent('getAvailablePaymentSolutions')">Get Available Payment Solutions</span></li>
+
+            <li><span class="btn-link" onclick="showContent('tokenize')">Tokenize</span></li>
+
+            <li><span class="btn-link" onclick="showContent('purchase')">Purchase (after Tokenize)</span></li>
+
+            <li><span class="btn-link" onclick="showContent('auth')">Auth (after Tokenize)</span></li>
+            <li><span class="btn-link" onclick="showContent('verify')">Verify (after Tokenize)</span></li>
+            <li><span class="btn-link" onclick="showContent('capture')">Capture (after Auth)</span></li>
+            <li><span class="btn-link" onclick="showContent('void')">Void (after Auth)</span></li>
+
+            <li><span class="btn-link" onclick="showContent('refund')">Refund (after Capture)</span></li>
+
+            <li><span class="btn-link" onclick="showContent('statuscheck')">Status Check</span></li>
+
+        </ul>
+
+        <h3>Browser-to-Server mode samples (Virtual Terminal Integration):</h3>
+        <ul>
+
+            <li style="margin-top: 20px"><span class="btn-link" onclick="showContent('redirect')">Redirect sample (servlet redirect)</span></li>
+            <li style="margin-top: 20px"><span class="btn-link" onclick="showContent('redirect2')">Redirect sample 2 (jQuery token acquiration)</span></li>
+            <li><span class="btn-link" onclick="showContent('jsapi')">JavaScript embedded sample (jQuery token acquiration)</span></li>
+
+            <li style="margin-top: 20px"><span class="btn-link" onclick="showContent('mobileredirect')">Redirect sample (servlet redirect for mobile)</span></li>
+
+        </ul>
+    </div>
+    <div class="contentRight">
+        <section id="getAvailablePaymentSolutions" class="hiddenDiv">
+            <h3>Get available payment solutions</h3>
+            <div class="form-group">
+                <label for="country">country:</label><input id="country" value="FR" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="currency">currency:</label><input id="currency" value="EUR" class="form-control" />
+            </div>
+            <button class="btn btn-default" onclick="invokeGetAvailablePaymentSolutions()">Send</button>
+        </section>
+        <section id="tokenize" class="hiddenDiv">
+            <h3>Tokenize</h3>
+            <div class="form-group">
+                <label for="number">number:</label><input id="numberToTokenize" value="5424180279791732" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="nameOnCard">nameOnCard:</label><input id="nameOnCardToTokenize" value="mastercard" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="expiryMonth">expiryMonth:</label><input id="expiryMonthToTokenize" value="04" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="expiryYear">expiryYear:</label><input id="expiryYearToTokenize" value="2021" class="form-control" />
+            </div>
+            <button class="btn btn-default" onclick="invokeTokenize()">Send</button>
+        </section>
+        <section id="purchase" class="hiddenDiv">
+            <h3>Purchase</h3>
+            <div class="form-group">
+                <label for="amount">amount:</label><input id="amountToPurchase" value="20.0" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="channel">channel:</label><input id="channelToPurchase" value="ECOM" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="country">country:</label><input id="countryToPurchase" value="PL" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="currency">currency:</label><input id="currencyToPurchase" value="PLN" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="paymentSolutionId">paymentSolutionId:</label><input id="paymentSolutionIdToPurchase" value="500" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="customerId">customerId:</label><input id="customerIdToPurchase" value="" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="specinCreditCardToken">specinCreditCardToken:</label><input id="specinCreditCardTokenToPurchase" value="" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="specinCreditCardCVV">specinCreditCardCVV:</label><input id="specinCreditCardCVVToPurchase" value="111" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="merchantNotificationUrl">merchantNotificationUrl:</label><input id="merchantNotificationUrl" value="http://localhost:8080/api/TransactionResultCallback" class="form-control" />
+            </div>
+
+            <button class="btn btn-default" onclick="invokePurchase()">Send</button>
+        </section>
+        <section id="auth" class="hiddenDiv">
+            <h3>Auth</h3>
+            <div class="form-group">
+                <label for="amount">amount:</label><input id="amountToAuth" value="20.0" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="channel">channel:</label><input id="channelToAuth" value="ECOM" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="country">country:</label><input id="countryToAuth" value="PL" class="form-control" />  @*FR*@
+            </div>
+            <div class="form-group">
+                <label for="currency">currency:</label><input id="currencyToAuth" value="PLN" class="form-control" />@*EUR*@
+            </div>
+            <div class="form-group">
+                <label for="paymentSolutionId">paymentSolutionId:</label><input id="paymentSolutionIdToAuth" value="500" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="customerId">customerId:</label><input id="customerIdToAuth" value="" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="specinCreditCardToken">specinCreditCardToken:</label><input id="specinCreditCardTokenToAuth" value="" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="specinCreditCardCVV">specinCreditCardCVV:</label><input id="specinCreditCardCVVToAuth" value="111" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="merchantNotificationUrl">merchantNotificationUrl:</label><input id="merchantNotificationUrl" value="http://localhost:8080/api/TransactionResultCallback" class="form-control" />
+            </div>
+
+            <button class="btn btn-default" onclick="invokeAuth()">Send</button>
+        </section>
+
+
+        <section id="verify" class="hiddenDiv">
+            <h3>Verify</h3>
+            <div class="form-group">
+                <label for="action">action:</label><input id="action" value="VERIFY" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="amount">amount:</label><input id="amountToVERIFY" value="0" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="channel">channel:</label><input id="channelToVERIFY" value="ECOM" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="country">country:</label><input id="countryToVERIFY" value="PL" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="currency">currency:</label><input id="currencyToVERIFY" value="PLN" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="paymentSolutionId">paymentSolutionId:</label><input id="paymentSolutionIdToVERIFY" value="500" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="customerId">customerId:</label><input id="customerIdToVERIFY" value="" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="specinCreditCardToken">specinCreditCardToken:</label><input id="specinCreditCardTokenToVERIFY" value="" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="specinCreditCardCVV">specinCreditCardCVV:</label><input id="specinCreditCardCVVToVERIFY" value="111" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="merchantNotificationUrl">merchantNotificationUrl:</label><input id="merchantNotificationUrl" value="http://localhost:8080/api/TransactionResultCallback" class="form-control" />
+            </div>
+
+            <button class="btn btn-default" onclick="invokeVerify()">Send</button>
+        </section>
+
+        <section id="capture" class="hiddenDiv">
+            <h3>Capture</h3>
+            <div class="form-group">
+                <label for="originalMerchantTxId">originalMerchantTxId:</label><input id="originalMerchantTxIdToCapture" value="" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="amount">amount:</label><input id="amountToCapture" value="20.0" class="form-control" />
+            </div>
+            <button class="btn btn-default" onclick="invokeCapture()">Send</button>
+        </section>
+        <section id="void" class="hiddenDiv">
+            <h3>Void</h3>
+            <div class="form-group">
+                <label for="originalMerchantTxId">originalMerchantTxId:</label><input id="originalMerchantTxIdToVoid" value="" class="form-control" />
+            </div>
+            <button class="btn btn-default" onclick="invokeVoid()">Send</button>
+        </section>
+        <section id="refund" class="hiddenDiv">
+            <h3>Refund</h3>
+            <div class="form-group">
+                <label for="amount">amount:</label><input id="amountToRefound" value="20.0" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="originalMerchantTxId">originalMerchantTxId:</label><input id="originalMerchantTxIdToRefound" value="" class="form-control" />
+            </div>
+            <button class="btn btn-default" onclick="invokeRefund()">Send</button>
+        </section>
+        <section id="statuscheck" class="hiddenDiv">
+            <h3>Status check</h3>
+            <div class="form-group">
+                <label for="txId">txId:</label><input id="txIdToStatusCheck" value="11387591" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="merchantTxId">merchantTxId:</label><input id="merchantTxIdToStatusCheck" value="11282092" class="form-control" />
+            </div>
+            <button class="btn btn-default" onclick="invokeStatusCheck()">Send</button>
+        </section>
+        <section id="redirect" class="hiddenDiv">
+            <h3>Redirect</h3>
+            <div class="form-group">
+                <label for="country">country:</label><input id="countryToRedirect" value="PL" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="currency">currency:</label><input id="currencyToRedirect" value="PLN" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="amount">amount:</label><input id="amountToRedirect" value="20.0" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="channel">channel:</label><input id="channelToRedirect" value="ECOM" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="paymentSolutionId">paymentSolutionId:</label><input id="paymentSolutionIdToRedirect" value="500" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="merchantNotificationUrl">merchantNotificationUrl:</label><input id="merchantNotificationUrlToRedirect" value="http://localhost:8080/api/TransactionResultCallback" class="form-control" />
+            </div>
+            <input type="hidden" id="integrationModeToRedirect" value="standalone" class="form-control" />
+            <button class="btn btn-default" onclick="invokeRedirect()">Pay</button>
+        </section>
+        <section id="redirect2" class="hiddenDiv">
+            <h3>Redirect 2</h3>
+            <div class="form-group">
+                <label for="country">country:</label><input id="countryToRedirect2" value="FR" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="currency">currency:</label><input id="currencyToRedirect2" value="EUR" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="amount">amount:</label><input id="amountToRedirect2" value="20.0" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="channel">channel:</label><input id="channelToRedirect2" value="ECOM" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="paymentSolutionId">paymentSolutionId:</label><input id="paymentSolutionIdToRedirect2" value="500" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="merchantNotificationUrl">merchantNotificationUrl:</label><input id="merchantNotificationUrlToRedirect2" value="http://localhost:8080/api/TransactionResultCallback" class="form-control" />
+            </div>
+            <input type="hidden" id="tokenToRedirect2" value="" class="form-control" />
+            <input type="hidden" id="merchantIdToRedirect2" value="" class="form-control" />
+            <input type="hidden" id="integrationModeToRedirect2" value="standalone" class="form-control" />
+            <button class="btn btn-default" onclick="invokeRedirect2()">Pay</button>
+        </section>
+        <section id="jsapi" class="hiddenDiv">
+            <h3>JS Api</h3>
+            <div class="form-group">
+                <label for="country">customerId:</label><input id="customerIdToJsaApi" value="" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="country">country:</label><input id="countryToJsaApi" value="PL" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="currency">currency:</label><input id="currencyToJsaApi" value="PLN" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="amount">amount:</label><input id="amountToJsaApi" value="20.0" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="channel">channel:</label><input id="channelToJsaApi" value="ECOM" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="paymentSolutionId">paymentSolutionId:</label><input id="paymentSolutionIdToJsaApi" value="500" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="merchantNotificationUrl">merchantNotificationUrl:</label><input id="merchantNotificationUrlToJsaApi" value="http://localhost:8080/api/TransactionResultCallback" class="form-control" />
+            </div>
+            <button class="btn btn-default" onclick="pay()">Pay</button>
+
+        </section>
+
+        <section id="mobileredirect" class="hiddenDiv">
+            <h3>Redirect-Mobile</h3>
+            <div class="form-group">
+                <label for="country">country:</label><input id="countryToRedirect" value="PL" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="currency">currency:</label><input id="currencyToRedirect" value="PLN" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="amount">amount:</label><input id="amountToRedirect" value="20.0" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="channel">channel:</label><input id="channelToRedirect" value="ECOM" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="paymentSolutionId">paymentSolutionId:</label><input id="paymentSolutionIdToRedirect" value="500" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="merchantNotificationUrl">merchantNotificationUrl:</label><input id="merchantNotificationUrlToRedirect" value="http://localhost:8080/api/TransactionResultCallback" class="form-control" />
+            </div>
+            <input type="hidden" id="integrationModeToRedirect" value="standalone" class="form-control" />
+            <button class="btn btn-default" onclick="invokeRedirectForMobile()">Pay</button>
+        </section>
+    </div>
+</div>

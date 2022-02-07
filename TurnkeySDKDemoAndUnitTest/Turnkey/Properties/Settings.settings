@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Turnkey.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="allowOriginUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080</Value>
+    </Setting>
+    <Setting Name="merchantNotificationUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/api/TransactionResultCallback</Value>
+    </Setting>
+    <Setting Name="merchantLandingPageUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/</Value>
+    </Setting>
+    <Setting Name="TurnkeySdkConfig" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">UAT</Value>
+    </Setting>
+    <Setting Name="TurnkeySdkHttpLog" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">./Turnkey.log</Value>
+    </Setting>
+    <Setting Name="merchantId" Type="System.String" Scope="Application">
+      <Value Profile="(Default)"></Value>
+    </Setting>
+    <Setting Name="password" Type="System.String" Scope="Application">
+      <Value Profile="(Default)"></Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Parameters>
+  <Environment value="UAT">
+      <SessionTokenRequestUrl>https://apiuat.test.intelligent-payments.com/token</SessionTokenRequestUrl>
+      <PaymentOperationActionUrl>https://apiuat.test.intelligent-payments.com/payments</PaymentOperationActionUrl>
+      <CashierUrl>https://cashierui-apiuat.test.intelligent-payments.com/ui/cashier</CashierUrl>
+      <CashierMobileUrl>https://cashierui-apiqa.test.myriadpayments.com/react-frontend/index.html</CashierMobileUrl>
+      <JavaScriptUrl>https://cashierui-apiuat.test.intelligent-payments.com/js/api.js</JavaScriptUrl>
+    </Environment>
+  <Environment value="Production">
+    <SessionTokenRequestUrl>https://api.intelligent-payments.com/token</SessionTokenRequestUrl>
+    <PaymentOperationActionUrl>https://api.intelligent-payments.com/payments</PaymentOperationActionUrl>
+    <CashierUrl>https://cashierui-api.intelligent-payments.com/ui/cashier</CashierUrl>
+    <CashierMobileUrl>https://cashierui-api.myriadpayments.com/react-frontend/index.html</CashierMobileUrl>
+    <JavaScriptUrl>https://cashierui-api.intelligent-payments.com/js/api.js</JavaScriptUrl>
+  </Environment>
+</Parameters>

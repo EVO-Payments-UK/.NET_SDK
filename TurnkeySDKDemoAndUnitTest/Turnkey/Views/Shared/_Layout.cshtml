@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Turnkey</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+    <style>
+        body {
+            margin: 10px auto 10px auto;
+        }
+
+        .btn-link {
+            cursor: pointer;
+        }
+
+        .menuLeft {
+            width: 30%;
+            float: left;
+        }
+
+        .contentRight {
+            float: left;
+            margin-left: 10%;
+            
+        }
+        #jsapi{
+            width:100%;
+        }
+        #ipgCashierDiv {
+            height:400px;
+        }
+        #loader {
+            display:none;
+        }
+        .payModal {
+            height:100%;
+        }
+        .hiddenDiv {
+            display: none;
+        }
+    </style>
+    <script src="../Scripts/main.js"></script>
+    <script src="https://cashierui-apiuat.test.myriadpayments.com/js/api.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+</head>
+<body onload="clear()">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Turnkey", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        
+        @RenderBody()
+        <!--<hr />-->
+        <!--<footer>
+        <p>&copy; @DateTime.Now.Year - Lanoga</p>
+    </footer>-->
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

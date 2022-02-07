@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Parameters>
+  <Environment value="UAT">
+      <SessionTokenRequestUrl>https://apiuat.test.evopaymentgateway.com/token</SessionTokenRequestUrl>
+      <PaymentOperationActionUrl>https://apiuat.test.evopaymentgateway.com/payments</PaymentOperationActionUrl>
+      <CashierUrl>https://cashierui-apiuat.test.evopaymentgateway.com/ui/cashier</CashierUrl>
+      <CashierMobileUrl>https://cashierui-apiqa.test.myriadpayments.com/react-frontend/index.html</CashierMobileUrl>
+      <JavaScriptUrl>https://cashierui-apiuat.test.evopaymentgateway.com/js/api.js</JavaScriptUrl>
+    </Environment>
+  <Environment value="Production">
+    <SessionTokenRequestUrl>https://api.evopaymentgateway.com/token</SessionTokenRequestUrl>
+    <PaymentOperationActionUrl>https://api.evopaymentgateway.com/payments</PaymentOperationActionUrl>
+    <CashierUrl>https://cashierui-api.evopaymentgateway.com.pl/ui/cashier</CashierUrl>
+    <CashierMobileUrl>https://cashierui-api.myriadpayments.com/react-frontend/index.html</CashierMobileUrl>
+    <JavaScriptUrl>https://cashierui-api.evopaymentgateway.com/js/api.js</JavaScriptUrl>
+  </Environment>
+</Parameters>

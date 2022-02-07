@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<ApplicationEnvironment>
+  <Environment AppEnv="Production">
+    <merchantId value="666"/>
+    <password value="1234"/>
+    <allowOriginUrl value="http://localhost:8080"/>
+    <sessionTokenRequestUrl value="https://apiuat.test.intelligent-payments.com/token"/>
+    <paymentActionRequestUrl value="https://apiuat.test.intelligent-payments.com/payments"/>
+   </Environment>
+  <Environment AppEnv="UAT">
+    <merchantId value="666"/>
+    <password value="1234"/>
+    <allowOriginUrl value="http://localhost:8080"/>
+    <sessionTokenRequestUrl value="https://apiuat.test.intelligent-payments.com/token"/>
+    <paymentActionRequestUrl value="https://apiuat.test.intelligent-payments.com/payments"/>
+  </Environment>
+</ApplicationEnvironment>

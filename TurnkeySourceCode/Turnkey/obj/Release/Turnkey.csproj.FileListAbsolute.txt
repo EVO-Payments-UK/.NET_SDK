@@ -1,0 +1,9 @@
+D:\WorkSpace\WorkingProject\SDKDevelopment\SDKLibraryProject\GlobalTurnkeySourceCode\GlobalTurnkey\bin\Release\Turnkey.dll
+D:\WorkSpace\WorkingProject\SDKDevelopment\SDKLibraryProject\GlobalTurnkeySourceCode\GlobalTurnkey\bin\Release\Turnkey.pdb
+D:\WorkSpace\WorkingProject\SDKDevelopment\SDKLibraryProject\GlobalTurnkeySourceCode\GlobalTurnkey\bin\Release\Newtonsoft.Json.dll
+D:\WorkSpace\WorkingProject\SDKDevelopment\SDKLibraryProject\GlobalTurnkeySourceCode\GlobalTurnkey\bin\Release\Newtonsoft.Json.xml
+D:\WorkSpace\WorkingProject\SDKDevelopment\SDKLibraryProject\GlobalTurnkeySourceCode\GlobalTurnkey\obj\Release\Turnkey.csprojAssemblyReference.cache
+D:\WorkSpace\WorkingProject\SDKDevelopment\SDKLibraryProject\GlobalTurnkeySourceCode\GlobalTurnkey\obj\Release\Turnkey.csproj.CoreCompileInputs.cache
+D:\WorkSpace\WorkingProject\SDKDevelopment\SDKLibraryProject\GlobalTurnkeySourceCode\GlobalTurnkey\obj\Release\Turnkey.csproj.CopyComplete
+D:\WorkSpace\WorkingProject\SDKDevelopment\SDKLibraryProject\GlobalTurnkeySourceCode\GlobalTurnkey\obj\Release\Turnkey.dll
+D:\WorkSpace\WorkingProject\SDKDevelopment\SDKLibraryProject\GlobalTurnkeySourceCode\GlobalTurnkey\obj\Release\Turnkey.pdb
